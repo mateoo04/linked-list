@@ -9,7 +9,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.head = null;
   }
@@ -144,19 +144,3 @@ class LinkedList {
     }
   }
 }
-
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(4);
-list.append(5);
-list.append(6);
-list.append('matteo');
-list.append(9);
-
-console.log(list.getTail());
-
-list.insertAt('matty', 6);
-
-console.log('List: ', list.toString());
