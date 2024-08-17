@@ -9,5 +9,7 @@ list.append('parrot');
 list.append('hamster');
 list.append('snake');
 list.append('turtle');
+list.prepend('lion');
+list.insertAt('koala', 2);
 
 console.log(list.toString());

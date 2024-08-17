@@ -16,15 +16,6 @@ export class LinkedList {
 
   append(value) {
     const newNode = new Node(value);
-    // if (this.head === null) this.head = newNode;
-    // else {
-    //   let last = this.head;
-    //   while (last.next !== null) {
-    //     last = last.next;
-    //   }
-
-    //   last.next = newNode;
-    // }
 
     const tail = this.getTail();
     if (!tail) this.head = newNode;
@@ -32,7 +23,7 @@ export class LinkedList {
   }
 
   prepend(value) {
-    const newNode = new Node(value, head);
+    const newNode = new Node(value, this.head);
 
     if (this.head === null) this.head = newNode;
     else this.head = newNode;
@@ -60,9 +51,7 @@ export class LinkedList {
 
     let current = this.head;
 
-    while (current.next !== null) {
-      current = current.next;
-    }
+    while (current.next !== null) current = current.next;
 
     return current;
   }
@@ -126,12 +115,15 @@ export class LinkedList {
   }
 
   insertAt(value, index) {
-    let previousNode = this.at(index - 1);
-    let nodeAtIndex = this.at(index);
+    if (index === 0) this.prepend(value);
+    else {
+      let previousNode = this.at(index - 1);
+      let nodeAtIndex = this.at(index);
 
-    const newNode = new Node(value, nodeAtIndex);
+      const newNode = new Node(value, nodeAtIndex);
 
-    previousNode.next = newNode;
+      previousNode.next = newNode;
+    }
   }
 
   removeAt(index) {
